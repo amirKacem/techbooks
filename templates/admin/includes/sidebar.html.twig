@@ -1,8 +1,9 @@
 <div id="sidebar" class="active">
-            <div class="sidebar-wrapper active">
+            <div class="sidebar-wrapper">
                 <div class="sidebar-header">
                     <div class="d-flex justify-content-between">
                         <div class="logo">
+                        
                             <a href="{{ path('admin.home') }}">Tech Books</a>
                         </div>
                         <div class="toggler">
@@ -12,7 +13,7 @@
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
-                        <li class="sidebar-item  active">
+                        <li class="sidebar-item {% if app.request.get('_route') == 'admin.home' %} active {% endif %}">
                             <a href="{{ path('admin.home') }}" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
@@ -24,11 +25,12 @@
                                 <i class="bi bi-stack"></i>
                                 <span>Book</span>
                             </a>
-                            <ul class="submenu ">
-                                <li class="submenu-item ">
+                            <ul class="submenu">
+
+                                <li class="submenu-item {% if app.request.get('_route') == 'admin.book.index' %} active {% endif %}">
                                     <a href="{{ path('admin.book.index') }}">All</a>
                                 </li>
-                                <li class="submenu-item ">
+                                <li class="submenu-item {% if app.request.get('_route') == 'admin.book.new' %} active {% endif %}">
                                     <a href="{{ path('admin.book.new') }}">Add Book</a>
                                 </li>
                                
@@ -40,10 +42,10 @@
                                 <span>Categories</span>
                             </a>
                             <ul class="submenu ">
-                                <li class="submenu-item ">
+                                  <li class="submenu-item {% if app.request.get('_route') == 'admin_category_index' %} active {% endif %}">
                                     <a href="{{ path('admin_category_index') }}">All</a>
                                 </li>
-                                <li class="submenu-item ">
+                                <li class="submenu-item {% if app.request.get('_route') == 'admin_category_new' %} active {% endif %}">
                                     <a href="{{ path('admin_category_new') }}">Add Category</a>
                                 </li>
                                
@@ -55,16 +57,16 @@
                                 <span>Author</span>
                             </a>
                             <ul class="submenu ">
-                                <li class="submenu-item ">
+                                <li class="submenu-item {% if app.request.get('_route') == 'admin_author_index' %} active {% endif %}">
                                     <a href="{{ path('admin_author_index') }}">All</a>
                                 </li>
-                                <li class="submenu-item ">
+                                <li class="submenu-item {% if app.request.get('_route') == 'admin_author_new' %} active {% endif %}">
                                     <a href="{{ path('admin_author_new') }}">Add Author</a>
                                 </li>
                                
                             </ul>
                         </li>
-                          <li class="sidebar-item">
+                          <li class="sidebar-item {% if app.request.get('_route') == 'admin_comment_index' %} active {% endif %}">
                             <a href="{{ path('admin_comment_index') }}" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Comments</span>
