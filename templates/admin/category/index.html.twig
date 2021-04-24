@@ -1,0 +1,43 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Categories{% endblock %}
+
+{% block body %}
+ 
+    <table class="table" id="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.name }}</td>
+                <td>{{ category.description | slice(0, 50) ~ '...' }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('admin_category_show', {'id': category.id}) }}">show</a>
+                    <a class="btn btn-primary" href="{{ path('admin_category_edit', {'id': category.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('admin_category_new') }}">Add Category</a>
+{% endblock %}
+{% block javascript %}
+  <script>
+        // Simple Datatable
+        let table1 = document.querySelector('#table');
+        let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
+{% endblock %}

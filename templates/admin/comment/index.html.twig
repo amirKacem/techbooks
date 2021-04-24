@@ -1,0 +1,48 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %} Comments {% endblock %}
+
+{% block body %}
+ 
+
+    <table class="table" id="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Description</th>
+                <th>Rating</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for comment in comments %}
+            <tr>
+                <td>{{ comment.id }}</td>
+                <td>{{ comment.username }}</td>
+                <td>{{ comment.email }}</td>
+                <td>{{ comment.description }}</td>
+                <td>{{ comment.rating }}</td>
+                <td>
+                    <a href="{{ path('admin_comment_show', {'id': comment.id}) }}">show</a>
+                        {{ include('admin/comment/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_comment_new') }}">Create new</a>
+{% endblock %}
+{% block javascript %}
+  <script>
+        // Simple Datatable
+        let table1 = document.querySelector('#table');
+        let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
+{% endblock %}

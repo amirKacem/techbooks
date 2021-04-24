@@ -1,0 +1,145 @@
+{% extends 'admin/base.html.twig' %}
+{% block title %}
+            Dashboard
+{% endblock %}
+{% block body %}
+            <div class="page-content">
+                <section class="row">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon purple">
+                                                    <i class="iconly-boldShow"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Books</h6>
+                                                <h6 class="font-extrabold mb-0">{{ statistcis[0]['books'] }}</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon blue">
+                                                    <i class="iconly-boldProfile"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Categories</h6>
+                                                <h6 class="font-extrabold mb-0">{{ statistcis[0]['categories'] }}</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon green">
+                                                    <i class="iconly-boldAdd-User"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Authors</h6>
+                                                <h6 class="font-extrabold mb-0">{{ statistcis[0]['authors'] }}</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                              <div class="col-6 col-lg-3 col-md-6">
+                                <div class="card">
+                                    <div class="card-body px-3 py-4-5">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="stats-icon red">
+                                                    <i class="iconly-boldAdd-User"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <h6 class="text-muted font-semibold">Comments</h6>
+                                                <h6 class="font-extrabold mb-0">{{ statistcis[0]['comments'] }}</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                 
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Lastest Comments</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-hover table-lg">
+                                                <thead>
+                                                    <tr>
+                                                        <th>username</th>
+                                                        <th>email</th>
+                                                        <th>description</th>
+                                                        <th>rating</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for comment in comments %}
+                                                    <tr>
+                                                        <td class="col-auto">
+                                                
+                                                            <p class="font-bold ms-3 mb-0">{{ comment.username }}</p>
+                                                            
+                                                        </td>
+                                                         <td class="col-auto">
+                                                
+                                                            <p class="font-bold ms-3 mb-0">{{ comment.email }}</p>
+                                                            
+                                                        </td>
+                                                         <td class="col-auto">
+                                                
+                                                            <p class="font-bold ms-3 mb-0">{{ comment.description | slice(0, 30) ~ '...'  }}</p>
+                                                            
+                                                        </td>
+                                                        <td class="col-auto">
+                                                            {% for i in comment.rating %}
+                                                              <i class="fa fa-star text-warning"></i>
+                                                            {% endfor %}
+                                                       
+                                                        </td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                   
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </section>
+            </div>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start">
+                        <p>2021 &copy;</p>
+                         
+                 
+                    </div>
+                   
+                </div>
+            </footer>
+        
+{% endblock %}

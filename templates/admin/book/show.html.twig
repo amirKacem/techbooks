@@ -1,0 +1,63 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %} {{ book.title }} {% endblock %}
+
+{% block body %}
+    <h1>Book</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ book.id }}</td>
+            </tr>
+            <tr>
+                <th>Isbn</th>
+                <td>{{ book.Isbn }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>
+                {% if ('http://' in book.Imgurl) or ('https://' in  book.Imgurl) %}
+                    {% set path = book.Imgurl %}
+                {% else  %}
+                   {% set path = vich_uploader_asset(book,'bookImage')  %}
+                {% endif %}
+                <img src="{{ path }}" alt="{{ book.title }}" width="200" height="200" />
+                
+                </td>
+            </tr>
+             <tr>
+                <th>File</th>
+                {% if ('http://' in book.fileUrl) or ('https://' in  book.fileUrl) %}
+                    {% set filePath = book.Imgurl %}
+                {% else  %}
+                   {% set filePath = vich_uploader_asset(book,'bookFile') %}
+                {% endif %}
+                <td>
+                    <a href="{{ filePath }}" download="">
+                                Download
+                            </a>
+                </td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ book.description }}</td>
+            </tr>
+            <tr>
+                <th>Length</th>
+                <td>{{ book.length }}</td>
+            </tr>
+            <tr>
+                <th>Topcis</th>
+                <td>{{ book.topcis }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('admin.book.index') }}">All Books</a>
+
+    <a class="btn btn-primary" href="{{ path('admin.book.edit', {'id': book.id}) }}">edit</a>
+
+    {{ include('admin/book/_delete_form.html.twig') }}
+{% endblock %}

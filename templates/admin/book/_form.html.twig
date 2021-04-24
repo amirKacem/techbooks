@@ -1,0 +1,63 @@
+{{ form_start(form) }}
+<div class="row">
+        <div class="col-md-12">
+               <div class="card">
+                    <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    {{ form_row(form.title) }}
+                                </div>
+                                <div class="col-md-6">
+                                    {{ form_row(form.Isbn) }}
+                                </div>
+                         
+                                <div class="col-md-6">
+                                        {{ form_row(form.bookImage) }}
+                                </div>
+                                   <div class="col-md-6">
+                                        {{ form_row(form.bookFile) }}
+                                </div>
+                                     
+                                <div class="col-md-6">
+                                    {{ form_row(form.length) }}
+                                </div>
+                                
+                                 <div class="col-md-6">
+                                    <div class="form-group row align-items-center">
+                                        {{ form_row(form.topcis) }}
+                                    </div>
+                                </div> 
+                                 <div class="col-md-6">
+                                    <div class="form-group row align-items-center">
+                                        {{ form_row(form.category) }}
+                                    </div>
+                                    <a class="btn btn-primary" href="{{ path('admin_category_new') }}">Add Category</a>
+                                </div> 
+                                 <div class="col-md-6">
+                                    <div class="form-group row align-items-center">
+                                        {{ form_row(form.author) }}
+                                        
+                                    </div>
+                                     <a class="btn btn-primary" href="{{ path('admin_author_new') }}">Add Author</a>
+                                    
+                                </div> 
+
+
+                                <div class="col-md-12">
+                                    <div class="form-group row align-items-center">
+                                        {{ form_row(form.description) }}
+                                    </div>
+                                </div>
+                                    
+                            </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+  
+
+    <button class="btn btn-primary d-block mx-auto">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
+                     
+                

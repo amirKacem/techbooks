@@ -1,0 +1,56 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}All Books{% endblock %}
+
+{% block body %}
+    <h1>Book index</h1>
+
+    <table class="table" id="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Isbn</th>
+          
+                <th>Length</th>
+                <th>Topcis</th>
+                <th>Category</th>
+                <th>Author</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for book in books %}
+   
+            <tr>
+                <td>{{ book.id }}</td>
+                 <td>{{ book.title }}</td>
+                <td>{{ book.Isbn }}</td>
+              
+                <td>{{ book.length }}</td>
+                  <td>{{ book.topcis | slice(0, 10) ~ '...' }}</td>
+                <td>{{ book.category.name }}</td>
+                  <td>{{ book.author.fullname }}</td>
+              
+                <td>
+                    <a class="btn btn-primary btn-sm" href="{{ path('admin.book.show', {'id': book.id}) }}">show</a>
+                    <a class="btn btn-primary btn-sm" href="{{ path('admin.book.edit', {'id': book.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('admin.book.new') }}">Add Book</a>
+{% endblock %}
+{% block javascript %}
+  <script>
+        // Simple Datatable
+        let table1 = document.querySelector('#table');
+        let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
+{% endblock %}

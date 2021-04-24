@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+
+<head>        
+        
+        <!-- Meta -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1">
+        
+        <!-- Title -->
+        <title>Tech Books</title>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/admin/css/bootstrap.css') }}">
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+        <link rel="stylesheet" href="{{ asset('assets/admin/vendors/simple-datatables/style.css') }}">
+
+        <link rel="stylesheet" href="{{ asset('assets/admin/vendors/bootstrap-icons/bootstrap-icons.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/admin/css/app.css') }}">
+        <link rel="shortcut icon" href="{{ asset('assets/admin/images/favicon.svg') }}" type="image/x-icon">
+    
+    </head>
+    
+    <body>
+        <div id="app">
+        {% include 'admin/includes/sidebar.html.twig' %}
+          <div id="main">
+          {% include 'admin/includes/header.html.twig' %}
+            <div class="page-heading">
+                <h3>{% block title %}{% endblock %}</h3>
+            </div>
+        {% block body %}{% endblock %}
+            </div>
+        </div>
+
+
+
+               
+        <script src="{{ asset('assets/admin/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+        <script src="{{ asset('assets/admin/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/admin/vendors/simple-datatables/simple-datatables.js') }}"></script>
+
+        <script src="{{ asset('assets/admin/js/main.js') }}"></script>
+        {% block javascript %}
+        {% endblock %}
+    </body>
+</html>

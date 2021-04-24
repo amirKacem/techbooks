@@ -1,0 +1,46 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Authors{% endblock %}
+
+{% block body %}
+
+
+    <table class="table" id="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First_name</th>
+                <th>Last_name</th>
+                <th>Full_name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for author in authors %}
+            <tr>
+                <td>{{ author.id }}</td>
+                <td>{{ author.firstName }}</td>
+                <td>{{ author.lastName }}</td>
+                <td>{{ author.fullName }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('admin_author_show', {'id': author.id}) }}">show</a>
+                    <a class="btn btn-primary" href="{{ path('admin_author_edit', {'id': author.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('admin_author_new') }}">Add Author</a>
+{% endblock %}
+{% block javascript %}
+  <script>
+        // Simple Datatable
+        let table1 = document.querySelector('#table');
+        let dataTable = new simpleDatatables.DataTable(table1);
+    </script>
+{% endblock %}
