@@ -25,29 +25,7 @@ class CommentController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/new", name="admin_comment_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
-        $comment = new Comment();
-        $form = $this->createForm(CommentType::class, $comment);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($comment);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('admin_comment_index');
-        }
-
-        return $this->render('admin/comment/new.html.twig', [
-            'comment' => $comment,
-            'form' => $form->createView(),
-        ]);
-    }
-
+   
     /**
      * @Route("/{id}", name="admin_comment_show", methods={"GET"})
      */
@@ -58,26 +36,7 @@ class CommentController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}/edit", name="admin_comment_edit", methods={"GET","POST"})
-     */
-    public function edit(Request $request, Comment $comment): Response
-    {
-        $form = $this->createForm(CommentType::class, $comment);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('admin_comment_index');
-        }
-
-        return $this->render('admin/comment/edit.html.twig', [
-            'comment' => $comment,
-            'form' => $form->createView(),
-        ]);
-    }
-
+    
     /**
      * @Route("/{id}", name="admin_comment_delete", methods={"POST"})
      */
