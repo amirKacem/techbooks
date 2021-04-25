@@ -13,8 +13,9 @@ class CategoryFixture extends BaseFixture
 
     public function loadData(ObjectManager $manager) {
         $this->createMany(Category::class, 10, function(Category $category, $count) {
-            $category->setName($this->faker->name)
-            ->setDescription($this->faker->text);
+            $category->setName($this->faker->word)
+            ->setDescription($this->faker->text)
+            ->setSlug($this->faker->slug);
         });
         $manager->flush();
     }

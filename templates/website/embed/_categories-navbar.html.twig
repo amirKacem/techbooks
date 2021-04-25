@@ -1,0 +1,6 @@
+   <ul class="{{ class }}">
+        <li><a href="{{ path('home.index') }}">Home</a></li>
+        {% for  categorie in categories %}
+                <li><a href="{{ path('category.show',{'slug': categorie.slug })  }}">{{ categorie.name }}</a></li>
+         {% endfor %}
+   </ul>

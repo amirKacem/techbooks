@@ -1,0 +1,44 @@
+ <!-- Start: Header Section -->
+        <header id="header-v1" class="navbar-wrapper inner-navbar-wrapper">
+            <div class="container">
+                <div class="row">
+                    <nav class="navbar navbar-default">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="navbar-header">
+                                    <div class="navbar-brand">
+                                        <h1>
+                                            <a href="{{ path('home.index') }}">
+                                                Tech Books
+                                            </a>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                             
+                             
+                                <div class="navbar-collapse hidden-sm hidden-xs">
+                                    {{ render(controller(
+                                        'App\\Controller\\CategoryController::allCategories',{class:'nav navbar-nav'}   
+                                    ))  }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mobile-menu hidden-lg hidden-md">
+                            <a href="#mobile-menu"><i class="fa fa-navicon"></i></a>
+                            <div id="mobile-menu">
+                           
+                                
+                                       {{ render(controller(
+                                        'App\\Controller\\CategoryController::allCategories',{class:''}   
+                                    ))  }}
+                               
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <!-- End: Header Section -->
+                
