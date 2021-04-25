@@ -6,10 +6,12 @@ use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=CategoryRepository::class)
  * @ORM\Table(name="categories",uniqueConstraints={@ORM\UniqueConstraint(name="unique_name", columns={"name"})})
+ * @UniqueEntity("name")
  */
 class Category
 {
@@ -41,6 +43,11 @@ class Category
      * @ORM\OneToMany(targetEntity=SubCategory::class, mappedBy="parent_category", orphanRemoval=true)
      */
     private $subCategories;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
 
     public function __construct()
     {
@@ -134,6 +141,18 @@ class Category
                 $subCategory->setParentCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
