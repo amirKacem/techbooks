@@ -4436,6 +4436,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     background-image: none;
   }
 }
+.d-flex{
+  display: flex;
+}
+.justify-content-center{
+  justify-content: center;
+}
 @media (min-width: 768px) {
   .navbar-nav {
     flex-wrap: wrap;
@@ -16355,7 +16361,13 @@ a:focus {
   margin: 24px 0 30px;
 }
 .filter-options.margin-list {
-  margin: 0 0 50px;
+  margin: 20px 0 20px;
+}
+a.sortable{
+  color:black;
+}
+.sorted a{
+  color: #ff7236;
 }
 /*--------------------------------------------------------------
 13.1.6. Books & Media --- List View

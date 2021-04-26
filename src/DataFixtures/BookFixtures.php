@@ -23,7 +23,7 @@ class BookFixtures extends BaseFixture implements DependentFixtureInterface
             ->setLength($this->faker->numberBetween(50,1000))
             ->setSlug($this->faker->slug)
             ->setTopcis($this->faker->text)
-            ->setImgUrl('https://via.placeholder.com/350x150')
+            ->setImgUrl('https://via.placeholder.com/350x570')
             ->setFileUrl('test.pdf')
             ->setCategory($this->getRandomReference(Category::class))
             ->setAuthor($this->getRandomReference(Author::class));

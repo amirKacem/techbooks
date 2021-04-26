@@ -1,0 +1,18 @@
+<div class="filter-options margin-list">
+                                <div class="row">                                            
+                                    <div class="col-md-2">
+                                            <div{% if books.isSorted('b.title') %} class="sorted"{% endif %}>
+                                            {{ knp_pagination_sortable(books, 'Sort By Title', 'b.title')  }}
+                                            </div>
+                                    
+                                    </div>
+                                    <div class="col-md-2">
+                                          <div{% if books.isSorted('b.length') %} class="sorted"{% endif %}>
+                                     {{ knp_pagination_sortable(books, 'Sort by Length', 'b.length') }}
+                                        </div>
+                                     
+                                    </div>
+                                   
+                            
+                                </div>
+                            </div>

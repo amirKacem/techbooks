@@ -4,7 +4,6 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
-
 abstract  class BaseFixture extends Fixture{
     
     protected $faker;
