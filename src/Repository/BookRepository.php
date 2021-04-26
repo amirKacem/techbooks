@@ -45,15 +45,16 @@ class BookRepository extends ServiceEntityRepository
         return $em->createNativeQuery($sql,$rsm)->getResult();
     }
 
-    /*
-    public function findOneBySomeField($value): ?Book
+   
+    public function getAllBooksByCategorie($category_id)
     {
         return $this->createQueryBuilder('b')
-            ->andWhere('b.exampleField = :val')
-            ->setParameter('val', $value)
+            ->join('b.category','c')
+            ->andWhere('c.id = :id')
+            ->setParameter('id', $category_id)
+    
             ->getQuery()
-            ->getOneOrNullResult()
+           
         ;
     }
-    */
 }

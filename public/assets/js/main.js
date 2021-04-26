@@ -105,7 +105,7 @@ $(function () {
 
     //Select List (Dropdown)
     //--------------------------------------------------------
-    var selectObj = $('select');
+    /*var selectObj = $('select');
     var selectListObj = $('ul.select-list');
     selectObj.each(function () {
         var $this = $(this), numberOfOptions = $(this).children('option').length;
@@ -115,7 +115,7 @@ $(function () {
         $this.after('<div class="select-styled"></div>');
 
         var $styledSelect = $this.next('div.select-styled');
-        $styledSelect.text($this.children('option').eq(0).text());
+        $styledSelect.text($this.children('option').eq(0).html());
 
         var $list = $('<ul />', {
             'class': 'select-list'
@@ -123,8 +123,8 @@ $(function () {
 
         for (var i = 0; i < numberOfOptions; i++) {
             $('<li />', {
-                text: $this.children('option').eq(i).text(),
-                rel: $this.children('option').eq(i).val()
+                text: $this.children('option').eq(i).html(),
+                rel: $this.children('option').eq(i).html()
             }).appendTo($list);
         }
 
@@ -150,7 +150,7 @@ $(function () {
             $list.hide();
         });
 
-    });
+    });*/
 
     //Facts Counter
     //--------------------------------------------------------
