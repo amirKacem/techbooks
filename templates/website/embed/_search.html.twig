@@ -1,0 +1,92 @@
+<!-- Start: Search Section -->
+<section class="search-filters">
+	<div class="container">
+		<div class="filter-box">
+			<h3>What are you looking for at the library?</h3>
+			<form action="{{  path('books.search') }}" method="get">
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group">
+						<label class="sr-only" for="keywords">Search by Keyword</label>
+						{{ form_row(form.by_keyword)}}
+						</div>
+				</div>
+			
+				<div class="col-md-3 col-sm-6">
+					<div class="form-group">
+					
+								{{ form_row(form.by_category)}}
+						
+					</div>
+				</div>
+				
+				<div class="col-md-3 col-sm-6">
+					<div class="form-group">
+					
+								{{ form_row(form.by_author)}}
+						
+					</div>
+				</div>
+				<div class="col-md-2 col-sm-6" style="margin-top:22px;">
+					<div class="form-group">
+						<input class="form-control" type="submit" value="Search">
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+<!-- End: Search Section -->
+{% if withResult %}
+<section class="section-padding">
+		<div class="container">
+			<h2 class="text-center text-secondary"> Books</h2>
+			<div class="booksmedia-fullwidth">
+
+				<ul>
+					{% for book in books %}
+						<li>
+
+							<figure>
+								<a href="{{ path('book.show',{'slug':book.slug}) }}">
+
+									{% if ('http://' in book.Imgurl) or ('https://' in  book.Imgurl) %}
+										{% set path = book.Imgurl %}
+									{% else  %}
+										{% set path = vich_uploader_asset(book,'bookImage')  %}
+									{% endif %}
+									<img src="{{ path }}" alt="{{ book.title }}">
+
+								</a>
+								<figcaption>
+									<header>
+										<h4>
+											<a href="{{ path('book.show',{'slug':book.slug}) }}">{{ book.title }}</a>
+										</h4>
+										<p>
+											<strong>Author:</strong>
+											{{ book.author.fullname }}</p>
+										<p>
+											<strong>ISBN:</strong>
+											{{ book.Isbn }}</p>
+										<p>
+											<strong>Length:</strong>
+											{{ book.length }}</p>
+									</header>
+									<p>{{ book.description }}</p>
+									<div class="actions">
+										<ul>
+											<li><ahref="{{path('book.show',{'slug':book.slug})}}" data-toggle="blog-tags" data-placement="top" title="More Info"><i class="fa fa-info-circle"></i></a></li>
+
+										</ul>
+									</div>
+								</figcaption>
+							</figure>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+			{{ knp_pagination_render(books,'',{'align':'center'}) }}
+
+		</div>
+	</div>
+{% endif %}

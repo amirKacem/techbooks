@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Book;
+use App\Entity\BookSearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query\ResultSetMapping;
 use Doctrine\Persistence\ManagerRegistry;
@@ -56,5 +57,27 @@ class BookRepository extends ServiceEntityRepository
             ->getQuery()
            
         ;
+    }
+
+    public function findBooks(BookSearch $bookSearch){
+        $query = $this->createQueryBuilder('b');
+  
+            if($bookSearch->getByCategory()){
+                $query = $query->andWhere('b.category = :category_id')
+                ->setParameter('category_id',$bookSearch->getByCategory()->getId());                
+                    
+            }
+            if($bookSearch->getByKeyword()){
+                
+                $query = $query->andWhere('b.title LIKE  :k')
+                        ->setParameter('k','%'.$bookSearch->getByKeyword().'%');
+            }
+
+            if($bookSearch->getByAuthor()){
+                $query = $query->andWhere('b.author = :author_id')
+                ->setParameter('author_id',$bookSearch->getByAuthor()->getId());    
+            }
+         
+        return $query->getQuery();
     }
 }

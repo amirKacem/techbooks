@@ -2,7 +2,9 @@
 
 {% block body %}
 	{% include 'website/includes/page-banner.html.twig' with {'title':'Home'} %}
-    {% include 'website/includes/search.html.twig' %}
+
+    {{ render(controller('App\\Controller\\BookController::search',{'withResult':false}))  }}
+
 	<!-- Start: Welcome Section -->
 	<section class="welcome-section">
 		<div class="container">
