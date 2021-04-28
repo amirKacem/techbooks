@@ -68,193 +68,54 @@
 										<strong>Summary:</strong>
 										{{ book.description }}
 									</p>
+									<!-- Comment Section -->
+									<div>
+										<h2 class="section-title text-center">Comments</h2>
+										<div class="comments-area" id="comments">
+											<div class="comment-bg">
+												<h4 class="comments-title">User Comments</h4>
+												<span class="underline left"></span>
+												<ol class="comment-list">
+													{% for comment in book.comments %}
+														<li class="comment even thread-even depth-1 parent">
+															<div class="comment-body">
+																<div class="comment-author vcard">
+																	<img class="avatar avatar-32 photo avatar-default" src="{{ asset('assets/images/avatar.jpg') }}" alt="Comment Author">
+																	<b class="fn">
+																		<a class="url" rel="external nofollow" href="#">{{ comment.username }}</a>
+																	</b>
+																</div>
+																<footer class="comment-meta">
+																	<div class="left-arrow"></div>
 
-									<div class="booksmedia-fullwidth booksmedia-popular-list">
-										<h2 class="section-title text-center">Popular Items</h2>
-										<span class="underline center"></span>
-										<ul class="popular-items-detail-v1">
-											<li>
-												<div class="book-list-icon blue-icon"></div>
-												<figure>
-													<img src="images/books-media/layout-3/books-media-layout3-01.jpg" alt="Book">
-													<figcaption>
-														<header>
-															<h4>
-																<a href="#.">The Great Gatsby</a>
-															</h4>
-															<p>
-																<strong>Author:</strong>
-																F. Scott Fitzgerald</p>
-															<p>
-																<strong>ISBN:</strong>
-																9781581573268</p>
-														</header>
-														<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-														<div class="actions">
-															<ul>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Like"><i class="fa fa-heart"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Mail"><i class="fa fa-envelope"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Search"><i class="fa fa-search"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print"><i class="fa fa-print"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print"><i class="fa fa-share-alt"></i></a></li>
-															</ul>
-														</div>
-													</figcaption>
-												</figure>
-											</li>
-											<li>
-												<div class="book-list-icon yellow-icon"></div>
-												<figure>
-													<img src="images/books-media/layout-3/books-media-layout3-02.jpg" alt="Book">
-													<figcaption>
-														<header>
-															<h4>
-																<a href="#.">The Great Gatsby</a>
-															</h4>
-															<p>
-																<strong>Author:</strong>
-																F. Scott Fitzgerald</p>
-															<p>
-																<strong>ISBN:</strong>
-																9781581573268</p>
-														</header>
-														<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-														<div class="actions">
-															<ul>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Like"><i class="fa fa-heart"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Mail"><i class="fa fa-envelope"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Search"><i class="fa fa-search"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print"><i class="fa fa-print"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print"><i class="fa fa-share-alt"></i></a></li>
-															</ul>
-														</div>
-													</figcaption>
-												</figure>
-											</li>
-											<li>
-												<div class="book-list-icon green-icon"></div>
-												<figure>
-													<img src="images/books-media/layout-3/books-media-layout3-03.jpg" alt="Book">
-													<figcaption>
-														<header>
-															<h4>
-																<a href="#.">The Great Gatsby</a>
-															</h4>
-															<p>
-																<strong>Author:</strong>
-																F. Scott Fitzgerald</p>
-															<p>
-																<strong>ISBN:</strong>
-																9781581573268</p>
-														</header>
-														<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-														<div class="actions">
-															<ul>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Like"><i class="fa fa-heart"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Mail"><i class="fa fa-envelope"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Search"><i class="fa fa-search"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print"><i class="fa fa-print"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print"><i class="fa fa-share-alt"></i></a></li>
-															</ul>
-														</div>
-													</figcaption>
-												</figure>
-											</li>
-											<li>
-												<div class="book-list-icon blue-icon"></div>
-												<figure>
-													<img src="images/books-media/layout-3/books-media-layout3-01.jpg" alt="Book">
-													<figcaption>
-														<header>
-															<h4>
-																<a href="#.">The Great Gatsby</a>
-															</h4>
-															<p>
-																<strong>Author:</strong>
-																F. Scott Fitzgerald</p>
-															<p>
-																<strong>ISBN:</strong>
-																9781581573268</p>
-														</header>
-														<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-														<div class="actions">
-															<ul>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Like"><i class="fa fa-heart"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Mail"><i class="fa fa-envelope"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Search"><i class="fa fa-search"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print"><i class="fa fa-print"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print"><i class="fa fa-share-alt"></i></a></li>
-															</ul>
-														</div>
-													</figcaption>
-												</figure>
-											</li>
-											<li>
-												<div class="book-list-icon yellow-icon"></div>
-												<figure>
-													<img src="images/books-media/layout-3/books-media-layout3-02.jpg" alt="Book">
-													<figcaption>
-														<header>
-															<h4>
-																<a href="#.">The Great Gatsby</a>
-															</h4>
-															<p>
-																<strong>Author:</strong>
-																F. Scott Fitzgerald</p>
-															<p>
-																<strong>ISBN:</strong>
-																9781581573268</p>
-														</header>
-														<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-														<div class="actions">
-															<ul>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Like"><i class="fa fa-heart"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Mail"><i class="fa fa-envelope"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Search"><i class="fa fa-search"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print"><i class="fa fa-print"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print"><i class="fa fa-share-alt"></i></a></li>
-															</ul>
-														</div>
-													</figcaption>
-												</figure>
-											</li>
-											<li>
-												<div class="book-list-icon green-icon"></div>
-												<figure>
-													<img src="images/books-media/layout-3/books-media-layout3-03.jpg" alt="Book">
-													<figcaption>
-														<header>
-															<h4>
-																<a href="#.">The Great Gatsby</a>
-															</h4>
-															<p>
-																<strong>Author:</strong>
-																F. Scott Fitzgerald</p>
-															<p>
-																<strong>ISBN:</strong>
-																9781581573268</p>
-														</header>
-														<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. Pellentesque dolor turpis, pulvinar varius.</p>
-														<div class="actions">
-															<ul>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Add To Cart"><i class="fa fa-shopping-cart"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Like"><i class="fa fa-heart"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Mail"><i class="fa fa-envelope"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Search"><i class="fa fa-search"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print"><i class="fa fa-print"></i></a></li>
-																<li><a href="#" target="_blank" data-toggle="blog-tags" data-placement="top" title="Print"><i class="fa fa-share-alt"></i></a></li>
-															</ul>
-														</div>
-													</figcaption>
-												</figure>
-											</li>
-										</ul>
+																	<div class="comment-metadata">
+																		<a href="#">
+																			<time datetime="2016-01-17">
+																				<b>{{ comment.email }}</b>
+																			</time>
+																		</a>
+																	</div>
+																	<div class="comment-content">
+																		<p>
+																			{{ comment.description }}
+																		</p>
+																	</div>
+																</footer>
+															</div>
+
+														</li>
+													{% endfor %}
+												</ol>
+											</div>
+
+										</div>
+										{{ form_start(form) }}
+										{{ form_widget(form) }}
+										<input type="hidden" id="book-id" name="book_id" value="{{ book.Id }}"/>
+										<button class="btn btn-primary d-block mx-auto">WRITE YOUR COMMENT:</button>
+										{{ form_end(form) }}
 									</div>
+
 								</div>
 							</div>
 
