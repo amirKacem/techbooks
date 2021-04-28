@@ -1,0 +1,7 @@
+{% extends 'website/base.html.twig' %}
+
+{% block body %}
+	{% include 'website/includes/page-banner.html.twig' with {'title':'Home'} %}
+       {{ render(controller('App\\Controller\\BookController::search',{'withResult':true}))  }}
+
+{% endblock %}

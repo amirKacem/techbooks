@@ -2,6 +2,7 @@
 
 {% block body %}
 	{% include 'website/includes/page-banner.html.twig' with {'title': book.title ,'subtitle':book.description} %}
+	   {{ render(controller('App\\Controller\\BookController::search',{'withResult':false}))  }}
 	<!-- Start: Products Section -->
 	<div id="content" class="site-content">
 		<div id="primary" class="content-area">
